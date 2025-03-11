@@ -1,6 +1,6 @@
-#include "blockchain.h"
-
-void Blockchain::AddTransactionToBlock(const CTransaction& tx) {
-    CBlock& lastBlock = chain.back();
-    lastBlock.AddTransaction(tx);
+void Blockchain::SyncBlockchain() {
+    std::cout << "Sincronizando blockchain con la red..." << std::endl;
+    for (const auto& block : chain) {
+        network.BroadcastBlock(block.GetHash());
+    }
 }
