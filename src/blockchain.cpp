@@ -1,6 +1,8 @@
-void Blockchain::SyncBlockchain() {
-    std::cout << "Sincronizando blockchain con la red..." << std::endl;
-    for (const auto& block : chain) {
-        network.BroadcastBlock(block.GetHash());
+void Blockchain::StartMining() {
+    while (true) {
+        CBlock lastBlock = GetLastBlock();
+        CBlock newBlock = Miner::MineBlock(lastBlock);
+        AddBlock(newBlock);
+        network.BroadcastBlock(newBlock.GetHash());
     }
 }
