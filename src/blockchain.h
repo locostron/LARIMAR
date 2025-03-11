@@ -1,4 +1,4 @@
-#include "mining.h"
+#include "storage.h"
 
 class Blockchain {
 public:
@@ -10,4 +10,6 @@ public:
     void AddTransactionToBlock(const CTransaction& tx);
     void SyncBlockchain();
     void StartMining();
-};
+    void SaveToDisk();
+    void LoadFromDisk();
+}
