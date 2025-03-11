@@ -10,22 +10,14 @@ Larimar/
 │   ├── main.cpp          # Punto de entrada
 │── CMakeLists.txt        # Configuración de compilación
 │── README.md             # Documentación
-Voy a comenzar con los archivos base. Te iré pasando el código paso a paso para que lo guardes en los archivos correspondientes. 🔥
-
-Voy a generar el código del núcleo de la blockchain primero. ¿Te parece bien? 😊
 
 
-Dijiste:
-ok lo necesito
-ChatGPT dijo:
 ¡Genial! 🚀 Empezaremos con la base de Larimar: la estructura de bloques y cadena de bloques .
 
 1️⃣ Definir la estructura del bloque
 📌 Creasrc/block.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -49,9 +41,7 @@ public:
 };
 📌 Creasrc/block.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "block.h"
@@ -79,9 +69,7 @@ void CBlock::AddTransaction(const CTransaction& tx) {
 2️⃣ Implementar la blockchain
 📌 Creasrc/blockchain.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -99,9 +87,7 @@ public:
 };
 📌 Creasrc/blockchain.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -126,17 +112,13 @@ CBlock Blockchain::GetLastBlock() const {
 🎯 Próximo paso: Implementar las transacciones
 Dime si quieres que continuemos con eso o si necesitas aclarar algo. 😊
 
-Dijiste:
-SI
-ChatGPT dijo:
+
 ¡Perfecto! 🚀 Ahora vamos a agregar el sistema de transacciones para que Larimar pueda transferir monedas entre usuarios.
 
 3️⃣ Implementar las transacciones
 📌 Creasrc/transaction.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -154,9 +136,7 @@ public:
 };
 📌 Creasrc/transaction.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "transaction.h"
@@ -179,9 +159,7 @@ std::string CTransaction::GetTransactionHash() const {
 4️⃣ Agregar transacciones a la blockchain
 📌 Modificasrc/block.cpp para usar transacciones
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "block.h"
@@ -191,9 +169,7 @@ void CBlock::AddTransaction(const CTransaction& tx) {
 }
 📌 Modificasrc/blockchain.cpp para registrar transacciones
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -204,9 +180,7 @@ void Blockchain::AddTransactionToBlock(const CTransaction& tx) {
 }
 📌 Modificasrc/blockchain.h para agregar la función
 
-PPP-CPP
 
-Copiar
 
 Editar
 void AddTransactionToBlock(const CTransaction& tx);
@@ -222,9 +196,7 @@ ChatGPT dijo:
 5️⃣ Implementar la Red P2P
 📌 Creasrc/network.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -242,9 +214,7 @@ public:
 };
 📌 Creasrc/network.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "network.h"
@@ -269,9 +239,7 @@ void P2PNetwork::BroadcastBlock(const std::string& blockData) {
 6️⃣ Integrar P2P con la Blockchain
 📌 Modificarsrc/blockchain.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "network.h"
@@ -288,9 +256,7 @@ public:
 };
 📌 Modificarsrc/blockchain.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 void Blockchain::SyncBlockchain() {
@@ -308,9 +274,7 @@ void Blockchain::SyncBlockchain() {
 🎯 Próximo paso: Implementar la minería (Yespower2b)
 Dime si seguimos con eso. 😊
 
-Dijiste:
-sitio
-ChatGPT dijo:
+
 ¡Vamos con la minería con Yespower2b para Larimar! 🚀
 
 7️⃣ Implementar la Minería (Yespower2b)
@@ -319,9 +283,7 @@ Para compilar correctamente, necesitamos la implementación de Yespower . Puedes
 
 📌 Creasrc/mining.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -334,9 +296,7 @@ public:
 };
 📌 Creasrc/mining.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "mining.h"
@@ -372,9 +332,7 @@ CBlock Miner::MineBlock(const CBlock& previousBlock) {
 8️⃣ Integrar Minería con Blockchain
 📌 Modificarsrc/blockchain.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "mining.h"
@@ -392,9 +350,7 @@ public:
 };
 📌 Modificarsrc/blockchain.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 void Blockchain::StartMining() {
@@ -413,17 +369,13 @@ void Blockchain::StartMining() {
 🎯 Próximo paso: Agregar almacenamiento en disco
 ¿Seguimos con eso? 😊
 
-Dijiste:
-Está bien, sí.
-ChatGPT dijo:
+
 ¡Genial! 🚀 Ahora agregaremos almacenamiento en disco para que Larimar pueda guardar y cargar la blockchain cuando se reinicie.
 
 9️⃣ Guardar y cargar Blockchain desde Disco
 📌 Creasrc/storage.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -438,9 +390,7 @@ public:
 };
 📌 Creasrc/storage.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "storage.h"
@@ -513,9 +463,7 @@ void Storage::LoadBlockchain(Blockchain& blockchain) {
 🔟 Integrar almacenamiento con la Blockchain
 📌 Modificarsrc/blockchain.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "storage.h"
@@ -535,9 +483,7 @@ public:
 };
 📌 Modificarsrc/blockchain.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 void Blockchain::SaveToDisk() {
@@ -554,9 +500,7 @@ void Blockchain::LoadFromDisk() {
 🎯 Próximo paso: Crear el explorador de bloques
 ¿Quieres que sigamos con eso? 😊
 
-Dijiste:
-Está bien, vale.
-ChatGPT dijo:
+:
 ¡Vamos con el explorador de bloques para Larimar! 🚀
 
 1️⃣1️⃣ Implementar un Explorador de Bloques
@@ -567,16 +511,12 @@ Necesitamos Crow , una biblioteca ligera para servidores web en C++.
 1️⃣ Descarga Crow y agregala al proyecto.
 2️⃣ Instala Boost si no lo tienes:
 
-ella
 
-Copiar
 
 Editar
 sudo apt install libboost-all-dev
 📌 Creasrc/explorer.h
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -589,9 +529,7 @@ public:
     static void StartServer(Blockchain& blockchain);
 };
 📌 Creasrc/explorer.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "explorer.h"
@@ -621,9 +559,7 @@ void Explorer::StartServer(Blockchain& blockchain) {
 📌 Integrar el Explorador con la Blockchain
 📌 Modificarsrc/main.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -649,9 +585,7 @@ int main() {
 📌 Ejecutar el Explorador
 Compila y ejecuta el código:
 
-ella
 
-Copiar
 
 Editar
 ./larimar
@@ -666,27 +600,21 @@ Luego abre en tu navegador:
 🎯 Próximo paso: Seguridad y firmas digitales
 ¿Quieres seguir con eso? 😊
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Vamos a agregar seguridad y firmas digitales a Larimar! 🔐🚀
 
 1️⃣2️⃣ Implementar Firmas Digitales con ECDSA
 Usaremos OpenSSL para generar y verificar firmas en las transacciones.
 
 📌 Instalar OpenSSL (si no lo tienes)
-ella
 
-Copiar
 
 Editar
 sudo apt install libssl-dev
 📌 Creasrc/crypto.h
-PPP-CPP
 
-Copiar
 
-Editar
+
 #pragma once
 
 #include <openssl/ec.h>
@@ -701,9 +629,7 @@ public:
     static bool VerifySignature(const std::string& publicKey, const std::string& data, const std::string& signature);
 };
 📌 Creasrc/crypto.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "crypto.h"
@@ -781,9 +707,7 @@ bool Crypto::VerifySignature(const std::string& publicKey, const std::string& da
 🔗 Integrar Firmas Digitales con Transacciones
 📌 Modificarsrc/transaction.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "crypto.h"
@@ -801,9 +725,7 @@ public:
 };
 📌 Modificarsrc/transaction.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 CTransaction::CTransaction(std::string sender, std::string receiver, double amount)
@@ -827,9 +749,7 @@ bool CTransaction::IsValid() const {
 🎯 Próximo paso: Mejorar la red P2P y agregar validaciones avanzadas
 ¿Seguimos con eso? 😊
 
-Dijiste:
-OK
-ChatGPT dijo:
+
 ¡Genial! Ahora vamos a mejorar la red P2P de Larimar y agregar validaciones avanzadas . 🚀
 
 1️⃣3️⃣ Mejorar la Red P2P 🌐
@@ -850,9 +770,7 @@ Copiar
 Editar
 sudo apt install libboost-dev libboost-system-dev libboost-thread-dev
 📌Crearsrc/network.h
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -879,9 +797,7 @@ private:
     void SendMessageToPeer(const std::string& peer, const std::string& message);
 };
 📌Crearsrc/network.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "network.h"
@@ -925,9 +841,7 @@ void P2PNetwork::SendMessageToPeer(const std::string& peer, const std::string& m
 📌 Integrar la Red P2P con la Blockchain
 📌 Modificarsrc/main.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -959,9 +873,7 @@ int main() {
 🎯 Próximo paso: Validaciones avanzadas en la blockchain
 ¿Seguimos con eso? 😊
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Perfecto! Ahora vamos a agregar validaciones avanzadas a la blockchain de Larimar. 🔍 ✅
 
 1️⃣4️⃣ Validaciones Avanzadas en la Blockchain
@@ -975,9 +887,7 @@ Queremos asegurarnos de que:
 blockchain.hyblockchain.cpp
 transaction.hytransaction.cpp
 📌 Modificarsrc/blockchain.h
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -998,9 +908,7 @@ private:
     std::vector<CTransaction> mempool;
 };
 📌 Modificarsrc/blockchain.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -1062,9 +970,7 @@ bool Blockchain::IsValidChain() const {
     return true;
 }
 📌 Mejorarsrc/transaction.h
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1084,9 +990,7 @@ public:
     bool IsValid() const;
 };
 📌 Mejorarsrc/transaction.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "transaction.h"
@@ -1105,9 +1009,7 @@ bool CTransaction::IsValid() const {
     return Crypto::VerifySignature(sender, data, signature);
 }
 📌 Integrar las Validaciones enmain.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -1139,9 +1041,7 @@ int main() {
 🎯 Próximo paso: Agregar almacenamiento en disco y explorador de bloques
 ¿Seguimos con eso? 😊
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Vamos a ello! Ahora agregaremos almacenamiento en disco y un explorador de bloques para Larimar. 📀🔍
 
 1️⃣5️⃣ Almacenamiento en Disco
@@ -1154,9 +1054,7 @@ Queremos que:
 Archivos JSON para guardar los datos
 fstreamPara leer y escribir
 📌 Modificarsrc/blockchain.h
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1176,10 +1074,8 @@ public:
 private:
     std::vector<CBlock> chain;
 };
-📌 Implementar ensrc/blockchain.cpp
-PPP-CPP
+ Implementar ensrc/blockchain.cpp
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -1253,17 +1149,13 @@ void Blockchain::PrintBlockchain() const {
 📌 Agregar Explorador de Bloques (API HTTP)
 📌 Instalarcpp-httplib (si no lo tienes):
 
-ella
 
-Copiar
 
 Editar
 sudo apt install libhttplib-dev
 📌Crear​src/explorer.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1282,9 +1174,7 @@ private:
 };
 📌 Implementarsrc/explorer.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "explorer.h"
@@ -1310,9 +1200,7 @@ void BlockExplorer::Start() {
     svr.listen("0.0.0.0", port);
 }
 📌 Integrar ensrc/main.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -1351,9 +1239,7 @@ int main() {
 🎯 Próximo paso: Mejorar la minería y optimizar el código
 ¿Seguimos? 🚀
 
-Dijiste:
-Está bien, vale.
-ChatGPT dijo:
+
 ¡Genial! Ahora vamos a mejorar la minería y optimizar el código para Larimar. ⛏️🚀
 
 1️⃣6️⃣ Optimización del Algoritmo de Minería
@@ -1368,9 +1254,7 @@ miner.hyminer.cpp
 block.hyblock.cpp
 blockchain.hyblockchain.cpp
 📌 Modificarsrc/miner.h
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1387,9 +1271,7 @@ private:
     int difficulty;
 };
 📌 Implementarsrc/miner.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "miner.h"
@@ -1428,9 +1310,7 @@ bool Miner::MineBlock(CBlock& block) {
     }
 }
 📌 Mejorarsrc/block.h
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1452,9 +1332,7 @@ public:
     bool ValidateBlock() const;
 };
 📌 Implementarsrc/block.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "block.h"
@@ -1471,9 +1349,7 @@ bool CBlock::ValidateBlock() const {
     return CalculateHash() == nHash;
 }
 📌 Mejorarsrc/blockchain.h
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1490,9 +1366,7 @@ private:
     std::vector<CBlock> chain;
 };
 📌 Implementarsrc/blockchain.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -1520,9 +1394,7 @@ CBlock Blockchain::GetLatestBlock() const {
     return chain.back();
 }
 📌 Integrar la Minería enmain.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -1555,9 +1427,7 @@ int main() {
 🎯 Próximo paso: Agregar contratos inteligentes
 ¿Seguimos con eso? 🚀
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Vamos a agregar contratos inteligentes a Larimar! 📝⚡
 
 1️⃣7️⃣ Contratos Inteligentes en Larimar
@@ -1579,9 +1449,7 @@ Cada contrato tendrá:
 
 📌Crear​src/contract.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1602,9 +1470,7 @@ private:
 };
 📌 Implementarsrc/contract.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "contract.h"
@@ -1635,9 +1501,7 @@ bool SmartContract::Execute(const nlohmann::json& input) {
 📌 2. Agregar Almacenamiento de Contratos
 📌Crear​src/contract_manager.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1656,9 +1520,7 @@ private:
 };
 📌 Implementarsrc/contract_manager.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "contract_manager.h"
@@ -1684,9 +1546,7 @@ void ContractManager::ListContracts() const {
 📌 3. Integrar en el Explorador
 📌 Modificarsrc/explorer.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "explorer.h"
@@ -1719,9 +1579,7 @@ void BlockExplorer::Start() {
     svr.listen("0.0.0.0", port);
 }
 📌 4. Integrar enmain.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -1754,9 +1612,7 @@ int main() {
 🎯 Próximo paso: Mejorar la seguridad y optimizar los contratos
 ¿Seguimos? 🚀
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Sigamos mejorando la seguridad y optimizando los contratos inteligentes en Larimar! 🔐⚡
 
 1️⃣8️⃣ Seguridad y Optimización de Contratos
@@ -1774,9 +1630,7 @@ Gas (Costo de ejecución) para evitar abuso
 📌 1. Verificación de Firma en Contratos
 📌 Modificarsrc/contract.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -1799,9 +1653,7 @@ private:
 };
 📌 Modificarsrc/contract.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "contract.h"
@@ -1845,9 +1697,6 @@ Para evitar ejecuciones infinitas o abusos , cada contrato pagará gas por opera
 
 📌 Modificarsrc/contract_manager.h
 
-PPP-CPP
-
-Copiar
 
 Editar
 #pragma once
@@ -1866,9 +1715,7 @@ private:
 };
 📌 Modificarsrc/contract_manager.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "contract_manager.h"
@@ -1898,9 +1745,7 @@ void ContractManager::ListContracts() const {
 📌 3. Seguridad en la API del Explorador
 📌 Modificarsrc/explorer.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "explorer.h"
@@ -1936,9 +1781,7 @@ void BlockExplorer::Start() {
     svr.listen("0.0.0.0", port);
 }
 📌 4. Integrar enmain.cpp
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -1971,9 +1814,7 @@ int main() {
 🎯 Próximo paso: Optimización de almacenamiento y sincronización en la blockchain
 ¿Seguimos? 🚀
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Genial! Ahora optimizaremos el almacenamiento y la sincronización en Larimar par
 
 🔹 1. Optimización del Almacenamiento
@@ -1981,9 +1822,7 @@ Actualmente, los bloques y transacciones pueden crecer mucho en tamaño. Para me
 
 📌 Modificarsrc/storage.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2043,9 +1882,7 @@ Qué
 
 📌 Modificarsrc/network.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2063,9 +1900,7 @@ private:
 };
 📌 Modificarsrc/network.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "network.h"
@@ -2090,9 +1925,7 @@ void P2PNetwork::ReceiveBlock(const CBlock& block) {
 🔹 3. Integración en elmain.cpp
 📌 Modificarsrc/main.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2128,9 +1961,7 @@ int main() {
 🎯 Próximo paso: Mejorar el consenso y la validación de bloques
 ¿Seguimos? 🚀
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Perfecto! Ahora mejoraremos el consenso y la validación de bloques en Larimar para hacerlo más s.
 
 🔹 1. Implementar Verificación de Prueba de Trabajo (PoW)
@@ -2138,9 +1969,7 @@ Necesitamos asegurar que los bloques sean válidos y signifiquen la dificultad e
 
 📌 Modificarsrc/block.h
 
-cp
 
-Copiar
 
 Editar
 #pragma once
@@ -2162,9 +1991,7 @@ public:
 };
 📌 Modificarsrc/block.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "block.h"
@@ -2176,9 +2003,7 @@ bool CBlock::IsValid() const {
 🔹 2. Agregar Verificación de PoW
 📌 Nuevo archivosrc/pow.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2187,9 +2012,7 @@ Editar
 bool VerifyProofOfWork(uint256 hash, int difficulty);
 📌 Nuevo archivosrc/pow.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "pow.h"
@@ -2201,9 +2024,7 @@ bool VerifyProofOfWork(uint256 hash, int difficulty) {
 🔹 3. Validación Completa de Bloques en la Blockchain
 📌 Modificarsrc/blockchain.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2218,9 +2039,7 @@ public:
 };
 📌 Modificarsrc/blockchain.cpp
 
-cp
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2244,9 +2063,7 @@ bool Blockchain::AddBlock(const CBlock& block) {
 🎯 Próximo paso: Implementar validación de transacciones y reglas de consenso avanzadas
 ¿Continuamos? 🚀
 
-Dijiste:
-OK
-ChatGPT dijo:
+
 ¡Genial! Ahora agregaremos validación de transacciones y mejoraremos lareglas de consenso en
 
 🔹 1. Implementar Validación de Transacciones
@@ -2257,9 +2074,7 @@ Antes de incluir una transacción en un bloque, debemos asegurarnos de que:
 
 📌 Modificarsrc/transaction.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2279,9 +2094,7 @@ public:
 };
 📌 Modificarsrc/transaction.cpp
 
-do
 
-Copiar
 
 Editar
 #include "transaction.h"
@@ -2302,9 +2115,7 @@ bool CTransaction::IsValid() const {
 🔹 2. Implementar la Verificación de Firma
 📌 Nuevo archivosrc/crypto.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2314,9 +2125,7 @@ Editar
 bool VerifySignature(const std::string& sender, const uint256& hash, const std::string& signature);
 📌 Nuevo archivosrc/crypto.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "crypto.h"
@@ -2330,9 +2139,7 @@ bool VerifySignature(const std::string& sender, const uint256& hash, const std::
 🔹 3. Integrar Validación en la Blockchain
 📌 Modificarsrc/blockchain.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2348,9 +2155,7 @@ public:
 };
 📌 Modificarsrc/blockchain.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2384,9 +2189,7 @@ bool Blockchain::AddBlock(const CBlock& block) {
 🎯 Próximo paso: Implementar mempool y propagación de transacciones en la red
 ¿Continuamos? 🚀
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Excelente! Ahora implementaremos el mempool y la **propagacion de transacciones en la
 
 🔹 1. ¿Qué es el mempool?
@@ -2396,9 +2199,6 @@ Es una lista temporal de
 🔹 2. Implementar el Mempool
 📌 Nuevo archivosrc/mempool.h
 
-PPP-CPP
-
-Copiar
 
 Editar
 #pragma once
@@ -2414,9 +2214,7 @@ public:
 };
 📌 Nuevo archivosrc/mempool.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "mempool.h"
@@ -2437,9 +2235,7 @@ std::vector<CTransaction> Mempool::GetTransactions() const {
 🔹 3. Propagación de Transacciones en la Red P2P
 📌 Nuevo archivosrc/network.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2449,9 +2245,7 @@ Editar
 void BroadcastTransaction(const CTransaction& tx);
 📌 Nuevo archivosrc/network.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "network.h"
@@ -2464,9 +2258,6 @@ void BroadcastTransaction(const CTransaction& tx) {
 🔹 4. Integrar Mempool en la Blockchain
 📌 Modificarsrc/blockchain.h
 
-PPP-CPP
-
-Copiar
 
 Editar
 #pragma once
@@ -2484,9 +2275,7 @@ public:
 };
 📌 Modificarsrc/blockchain.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2502,9 +2291,7 @@ void Blockchain::AddTransactionToMempool(const CTransaction& tx) {
 🎯 Próximo paso: Implementar minería para incluir transacciones en bloques
 ¿Listo para seguir? 🚀
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Vamos a implementar la minería en Larimar! 🔥
 
 La minería es clave para:
@@ -2515,9 +2302,7 @@ La minería es clave para:
 🔹 1. Crear el Código de Minería
 📌 Nuevo archivosrc/miner.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2536,9 +2321,7 @@ private:
 };
 📌 Nuevo archivosrc/miner.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "miner.h"
@@ -2567,9 +2350,7 @@ CBlock Miner::MineBlock() {
 🔹 2. Integrar Minería en la Blockchain
 Modificarsrc/blockchain.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2589,9 +2370,7 @@ public:
 };
 Modificarsrc/blockchain.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2609,9 +2388,7 @@ void Blockchain::StartMining() {
 🔹 3. Iniciar Minería enmain.cpp
 📌 Modificarsrc/main.cpp
 
-do
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2639,9 +2416,6 @@ Cada minero que descubra un bloque debe recibir una recompensa de 41 LAR .
 
 📌 Modificarsrc/block.h
 
-PPP-CPP
-
-Copiar
 
 Editar
 #pragma once
@@ -2664,9 +2438,7 @@ public:
 };
 📌 Modificarsrc/block.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "block.h"
@@ -2680,9 +2452,7 @@ CTransaction CBlock::CreateCoinbaseTransaction(const std::string& minerAddress) 
 }
 📌 Modificarsrc/miner.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 CBlock Miner::MineBlock() {
@@ -2709,9 +2479,7 @@ La red debe ajustar la dificultad paratiempo de bloque de 40 segundos .
 
 📌 Modificarsrc/blockchain.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2725,9 +2493,7 @@ public:
 };
 📌 Modificarsrc/blockchain.cpp
 
-cp
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2749,9 +2515,7 @@ void Blockchain::AdjustDifficulty() {
 }
 📌 **ModificarModificar src/blockchain.cpp(en AddBlock)
 
-PPP-CPP
 
-Copiar
 
 Editar
 bool Blockchain::AddBlock(const CBlock& block) {
@@ -2767,9 +2531,7 @@ bool Blockchain::AddBlock(const CBlock& block) {
 🎯 Próximo paso: Mejorar la sincronización entre nodos
 ¿
 
-Dijiste:
-si
-ChatGPT dijo:
+
 ¡Genial! Ahora mejoraremos la sincronización entre nodos para que Larimar pued
 
 🔹 1. ¿Cómo funciona la sincronización?
@@ -2781,9 +2543,7 @@ Cada nudo debe:
 🔹 2. Crear la Red P2P
 📌 Nuevo archivosrc/network.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -2802,9 +2562,7 @@ public:
 };
 📌 Nuevo archivosrc/network.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "network.h"
@@ -2829,9 +2587,6 @@ void Network::BroadcastTransaction(const CTransaction& tx) {
 🔹 3. Integrar la Red en la Blockchain
 📌 Modificarsrc/blockchain.h
 
-PPP-CPP
-
-Copiar
 
 Editar
 #pragma once
@@ -2845,9 +2600,7 @@ public:
 };
 📌 Modificarsrc/blockchain.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2860,9 +2613,7 @@ Cuando un
 
 📌 Modificar src/blockchain.cpp(en AddBlock)
 
-do
 
-Copiar
 
 Editar
 bool Blockchain::AddBlock(const CBlock& block) {
@@ -2873,9 +2624,7 @@ bool Blockchain::AddBlock(const CBlock& block) {
 }
 📌 **ModificarModificar src/blockchain.cpp(en AddTransactionToMempool)
 
-PPP-CPP
 
-Copiar
 
 Editar
 void Blockchain::AddTransactionToMempool(const CTransaction& tx) {
@@ -2885,9 +2634,7 @@ void Blockchain::AddTransactionToMempool(const CTransaction& tx) {
 🔹 5. Probar la Red enmain.cpp
 📌 Modificarsrc/main.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -2912,9 +2659,7 @@ int main() {
 🎯 Próximo paso: Crear un Explorador de Bloques
 ¿Yo?
 
-Dijiste:
-OK
-ChatGPT dijo:
+
 Explorador de bloques pa
 
 🔹 1. ¿Qué es un Explorador de Bloques?
@@ -2929,9 +2674,7 @@ Usaremos C++ + JSON + un servidor HTTP ligero para
 📌 Instalar nlohmann/json:
 Si aún
 
-ella
 
-Copiar
 
 Editar
 vcpkg install nlohmann-json
@@ -2939,7 +2682,7 @@ Modificar CMakeLists.txt(si usas CMake)
 
 Hacer
 
-Copiar
+
 
 Editar
 find_package(nlohmann_json REQUIRED)
@@ -2947,9 +2690,7 @@ target_link_libraries(larimar PRIVATE nlohmann_json::nlohmann_json)
 🔹 3. Crear un Servidor HTTP Simple
 📌 Nuevo archivosrc/httpserver.h
 
-do
 
-Copiar
 
 Editar
 #pragma once
@@ -2966,9 +2707,7 @@ public:
 };
 📌 Nuevo archivosrc/httpserver.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "httpserver.h"
@@ -3008,9 +2747,7 @@ std::string HTTPServer::HandleRequest(const std::string& endpoint) {
 🔹 4. Integrar el Explorador con la Blockchain
 📌 Modificarsrc/main.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -3034,9 +2771,7 @@ Explorador de Bloques funcionales enhttp://localhost:8080
 🎯 Próximo paso: Mejorar Seguridad y Almacenamiento en Disco
 ¿Yo?
 
-Dijiste:
-OK
-ChatGPT dijo:
+
 ¡Genial! Ahora vamos a mejorar la seguridad y el almacenamiento en discoteca de Larimar. 📂🔒
 
 🔹 1. Seguridad en la Red P2P
@@ -3046,9 +2781,7 @@ Para evitar ataques, agreguemos:
 
 📌 **ModificarModificar src/transaction.hpara incluir firmas
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -3066,9 +2799,7 @@ public:
 };
 📌 **ImplementarImplementar VerifySignatureensrc/transaction.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "transaction.h"
@@ -3078,9 +2809,7 @@ bool CTransaction::VerifySignature() const {
 }
 📌 **ModificarModificar src/blockchain.cpppara rechazar transacciones inválidas
 
-PPP-CPP
 
-Copiar
 
 Editar
 void Blockchain::AddTransactionToMempool(const CTransaction& tx) {
@@ -3096,9 +2825,7 @@ Pensilvania
 
 📌 Nuevo archivosrc/storage.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -3111,9 +2838,7 @@ public:
 };
 📌 Nuevo archivosrc/storage.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "storage.h"
@@ -3154,9 +2879,6 @@ void Storage::LoadBlockchain(Blockchain& blockchain, const std::string& filename
 🔹 3. Integrar Almacenamiento con la Blockchain
 Modificarsrc/main.cpp
 
-PPP-CPP
-
-Copiar
 
 Editar
 #include "blockchain.h"
@@ -3185,9 +2907,6 @@ int main() {
 🎯 Próximo paso: Implementar Contratos Inteligentes en Larimar
 ¿Lis
 
-Dijiste:
-si
-ChatGPT dijo:
 ¡Perfecto! Ahora vamos a implementar Contratos Inteligentes en Larimar . 📝🚀
 
 🔹 1. ¿Cómo funcionarán los contratos inteligentes en Larimar?
@@ -3200,9 +2919,7 @@ Usaremos un sistema basado en scripts, similar
 🔹 2. Crear un Lenguaje de Scripts Básico
 📌 Nuevo archivosrc/script.h
 
-PPP-CPP
 
-Copiar
 
 Editar
 #pragma once
@@ -3286,9 +3003,6 @@ bool Script::Execute() {
 🔹 3. Integrar Scripts en las Transacciones
 📌 Modificarsrc/transaction.h
 
-PPP-CPP
-
-Copiar
 
 Editar
 #pragma once
@@ -3306,9 +3020,7 @@ public:
 };
 📌 **ImplementarImplementar Validate()ensrc/transaction.cpp
 
-PPP-CPP
 
-Copiar
 
 Editar
 #include "transaction.h"
@@ -3319,9 +3031,7 @@ bool CTransaction::Validate() {
 🔹 4. Crear un Ejemplo de Contrato Inteligente
 📌 Ejemplo: Solo permitir transacciones six + y == 10
 
-PPP-CPP
 
-Copiar
 
 Editar
 CTransaction tx;
